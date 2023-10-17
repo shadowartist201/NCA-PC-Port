@@ -133,7 +133,8 @@ internal class Game1 : Game
 		Global.fontTex = base.Content.Load<SpriteFont>("Graphics//Fonts//font");
 		Global.menuFontTex = base.Content.Load<SpriteFont>("Graphics//Fonts//fontMenu");
 		Global.creditsFontTex = base.Content.Load<SpriteFont>("Graphics//Fonts//fontCredits");
-		for (int i = 0; i < 2; i++)
+
+        for (int i = 0; i < 2; i++)
 		{
 			Global.explosionSfx[i] = base.Content.Load<SoundEffect>("Sound//SFX//Explosion" + i);
 			Global.hurtSfx[i] = base.Content.Load<SoundEffect>("Sound//SFX//Hurt" + i);
@@ -152,9 +153,9 @@ internal class Game1 : Game
 		Global.goSfx = base.Content.Load<SoundEffect>("Sound//SFX//Level Start");
 		Global.deathSfx = base.Content.Load<SoundEffect>("Sound//SFX//Death");
 		Global.menuSelectSfx = base.Content.Load<SoundEffect>("Sound//SFX//Menu//Menu Select");
-		//Global.menuScrollSfx = base.Content.Load<SoundEffect>("Sound//SFX//Menu//Menu Scroll");
+		Global.menuScrollSfx = base.Content.Load<SoundEffect>("Sound//SFX//Menu//Menu Scroll");
 		Global.menuBackSfx = base.Content.Load<SoundEffect>("Sound//SFX//Menu//Menu Back");
-		//Global.menuStartSfx = base.Content.Load<SoundEffect>("Sound//SFX//Menu//Menu Start");
+		Global.menuStartSfx = base.Content.Load<SoundEffect>("Sound//SFX//Menu//Menu Start");
 		Global.menuYeahSfx = base.Content.Load<SoundEffect>("Sound//SFX//Menu//Rolo Yeah");
 		Game1.songManager_ = new SongManager(this);
 		this.fpsDisplay_ = new FPSDisplay();

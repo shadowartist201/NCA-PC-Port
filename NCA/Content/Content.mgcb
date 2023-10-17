@@ -721,3 +721,21 @@
 /processorParam:TextureFormat=Color
 /build:Graphics/UI/timerOutline2.png
 
+#begin Sound/SFX/Menu/Menu Back.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/SFX/Menu/Menu Back.wav
+
+#begin Sound/SFX/Menu/Menu Scroll.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/SFX/Menu/Menu Scroll.wav
+
+#begin Sound/SFX/Menu/Menu Start.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/SFX/Menu/Menu Start.wav
+
