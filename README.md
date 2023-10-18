@@ -6,7 +6,7 @@ This is a project to bring NCA to PC using the Xbox 360 version and the MonoGame
 ### Current status 
 Text placement issues.
 
-Controls as of X/XX/XX:
+Controls as of 10/18/2023:
 - S (start)
 - Spacebar (A)
 - B (back)
