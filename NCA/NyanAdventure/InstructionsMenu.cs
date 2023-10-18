@@ -66,18 +66,18 @@ internal class InstructionsMenu
 	{
 		background.DrawStars(spriteBatch);
 		this.titleItem_.Draw(spriteBatch, selected: false);
-		spriteBatch.DrawString(Global.menuFontTex, "Controls:", new Vector2(128f, 100f), Color.White);
-		spriteBatch.Draw(Global.aButtonTex, new Vector2(149f, 210f), (Rectangle?)null, Color.White, 0f, new Vector2(21f, 21f), this.aScale_, SpriteEffects.None, 0f);
-		spriteBatch.DrawString(Global.menuFontTex, "Press/Hold", new Vector2(199f, 210f), Color.White, 0f, new Vector2(0f, Global.menuFontTex.MeasureString("Press/Hold").Y / 2f), 0.8f, SpriteEffects.None, 0f);
-		spriteBatch.DrawString(Global.menuFontTex, "Collectables:", new Vector2(640f, 100f), Color.White);
+		spriteBatch.DrawString(Global.menuFontTex, "Controls:", new Vector2(128f, 100f+20), Color.White);
+		spriteBatch.Draw(Global.aButtonTex, new Vector2(149f, 210f + 20), (Rectangle?)null, Color.White, 0f, new Vector2(21f, 21f), this.aScale_, SpriteEffects.None, 0f);
+		spriteBatch.DrawString(Global.menuFontTex, "Press/Hold", new Vector2(199f, 210f + 20), Color.White, 0f, new Vector2(0f, Global.menuFontTex.MeasureString("Press/Hold").Y / 2f), 0.8f, SpriteEffects.None, 0f);
+		spriteBatch.DrawString(Global.menuFontTex, "Collectables:", new Vector2(640f, 100f + 20), Color.White);
 		for (int i = 0; i < this.collectables_.Length; i++)
 		{
 			this.collectables_[i].Draw(spriteBatch);
 			spriteBatch.DrawString(Global.menuFontTex, this.collectableNames_[i], this.collectables_[i].Position + new Vector2(100f, 0f), Color.White, 0f, new Vector2(0f, Global.menuFontTex.MeasureString(this.collectableNames_[i]).Y / 2f), 0.8f, SpriteEffects.None, 0f);
 		}
 		spriteBatch.Draw(Global.aButtonTex, new Vector2(128f, 606f), Color.White);
-		spriteBatch.DrawString(Global.menuFontTex, "Continue", new Vector2(177f, 586f), Color.White);
+		spriteBatch.DrawString(Global.menuFontTex, "Continue", new Vector2(190f, 586f+20), Color.White);
 		spriteBatch.Draw(Global.bButtonTex, new Vector2(1110f, 606f), Color.White);
-		spriteBatch.DrawString(Global.menuFontTex, "Back", new Vector2(980f, 586f), Color.White);
+		spriteBatch.DrawString(Global.menuFontTex, "Back", new Vector2(980f, 586f+20), Color.White);
 	}
 }

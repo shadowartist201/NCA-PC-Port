@@ -26,5 +26,5 @@ internal class FPSDisplay
 	public void Draw(SpriteBatch spriteBatch)
 	{
 		spriteBatch.DrawString(Global.menuFontTex, this.fps.ToString(), Vector2.Zero, Color.White);
-	}
+    }
 }

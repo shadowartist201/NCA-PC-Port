@@ -120,7 +120,7 @@ internal class MenuItem
 	{
 		if (!this.textured_)
 		{
-			spriteBatch.DrawString(Global.menuFontTex, this.text_, this.position_, selected ? this.selectedColor_ : this.defaultColor_, 0f, this.origin_, selected ? this.scale_ : this.maxScale_, SpriteEffects.None, 0f);
+			spriteBatch.DrawString(Global.menuFontTex, this.text_, this.position_+new Vector2(0,14), selected ? this.selectedColor_ : this.defaultColor_, 0f, this.origin_, selected ? this.scale_ : this.maxScale_, SpriteEffects.None, 0f);
 		}
 		else
 		{

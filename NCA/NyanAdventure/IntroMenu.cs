@@ -122,7 +122,7 @@ internal class IntroMenu
 		{
 		case 0:
 			spriteBatch.Draw(Global.introToasterTex, new Vector2(640f, 360f), (Rectangle?)null, Color.White, 0f, new Vector2(Global.introToasterTex.Width / 2, Global.introToasterTex.Height / 2), 1f, SpriteEffects.None, 0f);
-			spriteBatch.Draw(Global.introCharTex, this.characterPosition_, (Rectangle?)null, Color.White, this.characterRotation_, new Vector2(Global.introCharTex.Width / 2, Global.introCharTex.Height / 2), 1f, SpriteEffects.None, 0f);
+			spriteBatch.Draw(Global.introCharTex, this.characterPosition_, (Rectangle?)null, Color.White, this.characterRotation_, new Vector2(Global.introCharTex.Width / 2, Global.introCharTex.Height / 2), 0f, SpriteEffects.None, 0f);
 			spriteBatch.Draw(Global.introToasterFront, new Vector2(640f, 360f), (Rectangle?)null, Color.White, 0f, new Vector2(Global.introToasterFront.Width / 2, Global.introToasterFront.Height / 2), 1f, SpriteEffects.None, 0f);
 			spriteBatch.Draw(Global.introHandleTex, this.handlePosition_, Color.White);
 			spriteBatch.DrawString(Global.menuFontTex, this.texts_[this.textIndex_].Substring(0, Math.Min(this.texts_[this.textIndex_].Length, (int)this.textProgress_)), this.textPositions_[this.textIndex_], Color.White);

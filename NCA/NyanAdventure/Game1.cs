@@ -133,6 +133,7 @@ internal class Game1 : Game
 		Global.fontTex = base.Content.Load<SpriteFont>("Graphics//Fonts//font");
 		Global.menuFontTex = base.Content.Load<SpriteFont>("Graphics//Fonts//fontMenu");
 		Global.creditsFontTex = base.Content.Load<SpriteFont>("Graphics//Fonts//fontCredits");
+		Global.menuFontTex.LineSpacing = -10;
 
         for (int i = 0; i < 2; i++)
 		{
@@ -235,6 +236,7 @@ internal class Game1 : Game
 			this.stage_.DrawUI(this.spriteBatch);
 		}
 		this.menuManager_.Draw(this.spriteBatch, this.stage_.Background, this.stage_.Character, this.stage_.ScoreSystem);
+		this.fpsDisplay_.Draw(spriteBatch);
 		this.spriteBatch.End();
 		base.Draw(gameTime);
 	}

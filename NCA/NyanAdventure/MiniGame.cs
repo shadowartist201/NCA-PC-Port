@@ -509,7 +509,7 @@ internal class MiniGame
 				if (this.displayEndScore_)
 				{
 					spriteBatch.Draw(Global.popupTex, new Vector2(640f, 360f), (Rectangle?)null, Color.White, 0f, new Vector2(Global.popupTex.Width / 2, Global.popupTex.Height / 2), 1f, SpriteEffects.None, 0f);
-					spriteBatch.Draw(Global.aButtonTex, new Vector2(615f, 406f), (Rectangle?)null, Color.White, 0f, new Vector2(Global.aButtonTex.Width / 2, Global.aButtonTex.Height / 2), 1f, SpriteEffects.None, 0f);
+					spriteBatch.Draw(Global.aButtonTex, new Vector2(615f, 406f-10), (Rectangle?)null, Color.White, 0f, new Vector2(Global.aButtonTex.Width / 2, Global.aButtonTex.Height / 2), 1f, SpriteEffects.None, 0f);
 					Global.DrawStringCentered(spriteBatch, this.endScoreMessage_);
 				}
 				else

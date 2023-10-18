@@ -97,32 +97,32 @@ internal class OptionsMenu : Menu
 
 	public new void Draw(SpriteBatch spriteBatch, Background background)
 	{
-		spriteBatch.Draw(Global.sliderBarTex, new Vector2(770f, base.menuItems_[0].Position.Y), (Rectangle?)null, Color.White, 0f, new Vector2(Global.sliderBarTex.Width / 2, Global.sliderBarTex.Height / 2), 1f, SpriteEffects.None, 0f);
-		spriteBatch.Draw(Global.sliderBarTex, new Vector2(770f, base.menuItems_[1].Position.Y), (Rectangle?)null, Color.White, 0f, new Vector2(Global.sliderBarTex.Width / 2, Global.sliderBarTex.Height / 2), 1f, SpriteEffects.None, 0f);
-		spriteBatch.Draw(Global.sliderBarTex, new Vector2(770f, base.menuItems_[2].Position.Y), (Rectangle?)null, Color.White, 0f, new Vector2(Global.sliderBarTex.Width / 2, Global.sliderBarTex.Height / 2), 1f, SpriteEffects.None, 0f);
+		spriteBatch.Draw(Global.sliderBarTex, new Vector2(770f, base.menuItems_[0].Position.Y+7), (Rectangle?)null, Color.White, 0f, new Vector2(Global.sliderBarTex.Width / 2, Global.sliderBarTex.Height / 2), 1f, SpriteEffects.None, 0f);
+		spriteBatch.Draw(Global.sliderBarTex, new Vector2(770f, base.menuItems_[1].Position.Y+7), (Rectangle?)null, Color.White, 0f, new Vector2(Global.sliderBarTex.Width / 2, Global.sliderBarTex.Height / 2), 1f, SpriteEffects.None, 0f);
+		spriteBatch.Draw(Global.sliderBarTex, new Vector2(770f, base.menuItems_[2].Position.Y+7), (Rectangle?)null, Color.White, 0f, new Vector2(Global.sliderBarTex.Width / 2, Global.sliderBarTex.Height / 2), 1f, SpriteEffects.None, 0f);
 		if (this.sfxOn)
 		{
-			spriteBatch.Draw(Global.onBarTex, new Vector2(721f, base.menuItems_[0].Position.Y - 22f), Color.White);
+			spriteBatch.Draw(Global.onBarTex, new Vector2(721f, base.menuItems_[0].Position.Y - 22f+7), Color.White);
 		}
 		else
 		{
-			spriteBatch.Draw(Global.offBarTex, new Vector2(770f, base.menuItems_[0].Position.Y - 22f), Color.White);
+			spriteBatch.Draw(Global.offBarTex, new Vector2(770f, base.menuItems_[0].Position.Y - 22f + 7), Color.White);
 		}
 		if (this.musicOn)
 		{
-			spriteBatch.Draw(Global.onBarTex, new Vector2(721f, base.menuItems_[1].Position.Y - 22f), Color.White);
+			spriteBatch.Draw(Global.onBarTex, new Vector2(721f, base.menuItems_[1].Position.Y - 22f + 7), Color.White);
 		}
 		else
 		{
-			spriteBatch.Draw(Global.offBarTex, new Vector2(770f, base.menuItems_[1].Position.Y - 22f), Color.White);
+			spriteBatch.Draw(Global.offBarTex, new Vector2(770f, base.menuItems_[1].Position.Y - 22f + 7), Color.White);
 		}
 		if (Global.vibrationOn)
 		{
-			spriteBatch.Draw(Global.onBarTex, new Vector2(721f, base.menuItems_[2].Position.Y - 22f), Color.White);
+			spriteBatch.Draw(Global.onBarTex, new Vector2(721f, base.menuItems_[2].Position.Y - 22f + 7), Color.White);
 		}
 		else
 		{
-			spriteBatch.Draw(Global.offBarTex, new Vector2(770f, base.menuItems_[2].Position.Y - 22f), Color.White);
+			spriteBatch.Draw(Global.offBarTex, new Vector2(770f, base.menuItems_[2].Position.Y - 22f + 7), Color.White);
 		}
 		base.Draw(spriteBatch, background);
 	}

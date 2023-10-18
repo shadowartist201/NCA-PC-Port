@@ -95,6 +95,8 @@ public struct ScoreInfo
 		}*/
 	}
 
+	private int offset = 23;
+
 	public void DrawLeaderboard(SpriteBatch spriteBatch)
 	{
 		Color[] array = new Color[6]
@@ -106,12 +108,12 @@ public struct ScoreInfo
 			new Color(90, 214, 222),
 			new Color(132, 132, 230)
 		};
-		spriteBatch.DrawString(Global.menuFontTex, "Mode", new Vector2(126f, 312f), array[0]);
-		spriteBatch.DrawString(Global.menuFontTex, "Character", new Vector2(638f, 312f), array[0], 0f, new Vector2(Global.menuFontTex.MeasureString("Character").X / 2f, 0f), 1f, SpriteEffects.None, 0f);
-		spriteBatch.DrawString(Global.menuFontTex, "Score", new Vector2(1022f, 312f), array[0]);
-		spriteBatch.DrawString(Global.menuFontTex, "Mode", new Vector2(128f, 310f), Color.White);
-		spriteBatch.DrawString(Global.menuFontTex, "Character", new Vector2(640f, 310f), Color.White, 0f, new Vector2(Global.menuFontTex.MeasureString("Character").X / 2f, 0f), 1f, SpriteEffects.None, 0f);
-		spriteBatch.DrawString(Global.menuFontTex, "Score", new Vector2(1024f, 310f), Color.White);
+		spriteBatch.DrawString(Global.menuFontTex, "Mode", new Vector2(126f, 312f+offset), array[0]);
+		spriteBatch.DrawString(Global.menuFontTex, "Character", new Vector2(638f, 312f+ offset), array[0], 0f, new Vector2(Global.menuFontTex.MeasureString("Character").X / 2f, 0f), 1f, SpriteEffects.None, 0f);
+		spriteBatch.DrawString(Global.menuFontTex, "Score", new Vector2(1022f, 312f + offset), array[0]);
+		spriteBatch.DrawString(Global.menuFontTex, "Mode", new Vector2(128f, 310f+offset), Color.White);
+		spriteBatch.DrawString(Global.menuFontTex, "Character", new Vector2(640f, 310f + offset), Color.White, 0f, new Vector2(Global.menuFontTex.MeasureString("Character").X / 2f, 0f), 1f, SpriteEffects.None, 0f);
+		spriteBatch.DrawString(Global.menuFontTex, "Score", new Vector2(1024f, 310f+offset), Color.White);
 		for (int i = 0; i < this.scores_.Length; i++)
 		{
 			string text = "";
@@ -133,11 +135,11 @@ public struct ScoreInfo
 				text = "Toast";
 				break;
 			}
-			spriteBatch.DrawString(Global.menuFontTex, text, new Vector2(126f, 372 + 50 * i), array[i + 1], 0f, Vector2.Zero, 0.8f, SpriteEffects.None, 0f);
-			spriteBatch.DrawString(Global.menuFontTex, text, new Vector2(128f, 370 + 50 * i), Color.White, 0f, Vector2.Zero, 0.8f, SpriteEffects.None, 0f);
+			spriteBatch.DrawString(Global.menuFontTex, text, new Vector2(126f, 372 +offset + 50 * i), array[i + 1], 0f, Vector2.Zero, 0.8f, SpriteEffects.None, 0f);
+			spriteBatch.DrawString(Global.menuFontTex, text, new Vector2(128f, 370 + offset +50 * i), Color.White, 0f, Vector2.Zero, 0.8f, SpriteEffects.None, 0f);
 			spriteBatch.Draw(Global.characterListTex, new Vector2(640f, 410 + 50 * i), (Rectangle?)new Rectangle(152 * this.characters_[i], 0, 152, 80), Color.White, 0f, new Vector2(76f, 40f), 0.5f, SpriteEffects.None, 0f);
-			spriteBatch.DrawString(Global.menuFontTex, this.scores_[i].ToString(), new Vector2(1022f, 372 + 50 * i), array[i + 1], 0f, Vector2.Zero, 0.8f, SpriteEffects.None, 0f);
-			spriteBatch.DrawString(Global.menuFontTex, this.scores_[i].ToString(), new Vector2(1024f, 370 + 50 * i), Color.White, 0f, Vector2.Zero, 0.8f, SpriteEffects.None, 0f);
+			spriteBatch.DrawString(Global.menuFontTex, this.scores_[i].ToString(), new Vector2(1022f, 372 + offset + 50 * i), array[i + 1], 0f, Vector2.Zero, 0.8f, SpriteEffects.None, 0f);
+			spriteBatch.DrawString(Global.menuFontTex, this.scores_[i].ToString(), new Vector2(1024f, 370 + offset + 50 * i), Color.White, 0f, Vector2.Zero, 0.8f, SpriteEffects.None, 0f);
 		}
 	}
 }

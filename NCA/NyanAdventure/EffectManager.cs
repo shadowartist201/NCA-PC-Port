@@ -114,37 +114,37 @@ internal class EffectManager
 	public void Draw(SpriteBatch spriteBatch, RenderTarget2D renderTarget, GraphicsDeviceManager graphics, GraphicsDevice graphicsDevice)
 	{
 		graphicsDevice.SetRenderTarget(null);
-		switch (this.effectIndex)
+		/*switch (this.effectIndex)
 		{
 		case 2:
-			//this.effects[this.effectIndex].Parameters["Offset"].SetValue(new Vector2((float)Math.Cos(this.theta), (float)Math.Sin(this.theta)));
+			this.effects[this.effectIndex].Parameters["Offset"].SetValue(new Vector2((float)Math.Cos(this.theta), (float)Math.Sin(this.theta)));
 			break;
 		case 5:
 			graphics.GraphicsDevice.Textures[1] = this.noiseTex;
 			graphicsDevice.SamplerStates[1] = SamplerState.LinearWrap;
-			//this.effects[this.effectIndex].Parameters["Offset"].SetValue(this.offset);
+			this.effects[this.effectIndex].Parameters["Offset"].SetValue(this.offset);
 			break;
 		case 6:
-			//this.effects[this.effectIndex].Parameters["WaveDimensions"].SetValue(new Vector2(this.waveDimensions.X, this.waveDimensions.Y));
-			//this.effects[this.effectIndex].Parameters["Timer"].SetValue(this.timer);
+			this.effects[this.effectIndex].Parameters["WaveDimensions"].SetValue(new Vector2(this.waveDimensions.X, this.waveDimensions.Y)); //wavy
+			this.effects[this.effectIndex].Parameters["Timer"].SetValue(this.timer);
 			break;
 		case 7:
-			//this.effects[this.effectIndex].Parameters["Timer"].SetValue(this.timer);
-			//this.effects[this.effectIndex].Parameters["Strength"].SetValue(this.strength);
+			this.effects[this.effectIndex].Parameters["Timer"].SetValue(this.timer);
+			this.effects[this.effectIndex].Parameters["Strength"].SetValue(this.strength);
 			break;
 		}
 		if (this.effectIndex == -1)
-		{
+		{*/
 			spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.NonPremultiplied);
 			spriteBatch.Draw(renderTarget, Vector2.Zero, Color.White);
 			spriteBatch.End();
-		}
+		/*}
 		else
 		{
 			spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, this.effects[this.effectIndex]);
 			spriteBatch.Draw(renderTarget, Vector2.Zero, Color.White * this.alpha);
 			spriteBatch.End();
-		}
+		}*/
 	}
 
 	public void SetEffectRandom()
@@ -173,10 +173,10 @@ internal class EffectManager
 			this.alphaRate = 10f;
 			this.alphaMin = 0.2f;
 			this.alphaMax = 0.8f;
-			Global.SetVibration(0.1f);
+			Global.SetVibration(0.1f); //black white flash
 			break;
 		case 1:
-			Global.SetVibration(0.1f);
+			Global.SetVibration(0.1f); //invert colors filter
 			break;
 		case 2:
 			this.alpha = 0.1f;
@@ -185,17 +185,17 @@ internal class EffectManager
 			this.alphaMax = 0.4f;
 			this.theta = 0f;
 			this.thetaRate = 8f;
-			Global.SetVibration(0.3f);
+			Global.SetVibration(0.3f); //shake in circles
 			break;
 		case 3:
-			Global.SetVibration(0.1f);
+			Global.SetVibration(0.1f); //edge detect dark
 			break;
 		case 4:
 			this.alpha = 1f;
 			this.alphaRate = 0f;
 			this.alphaMin = 0.2f;
 			this.alphaMax = 1f;
-			Global.SetVibration(0.1f);
+			Global.SetVibration(0.1f); //pixelate
 			break;
 		case 5:
 			this.alpha = 0.15f;
@@ -203,7 +203,7 @@ internal class EffectManager
 			this.alphaMin = 0.05f;
 			this.alphaMax = 0.3f;
 			this.offsetRate = new Vector2(4f, 4f);
-			Global.SetVibration(0.3f);
+			Global.SetVibration(0.3f); //noise effect (like frosted glass)
 			break;
 		case 6:
 			this.alpha = 1f;
@@ -215,7 +215,7 @@ internal class EffectManager
 			this.waveDimensionsMin = new Vector2(0f, 0f);
 			this.waveDimensionsMax = new Vector2(100f, 1f);
 			Stage.background_.SetMode(BackgroundMode.BW);
-			Global.SetVibration(0.3f);
+			Global.SetVibration(0.3f); //sin waves
 			break;
 		case 7:
 			this.alpha = 1f;
@@ -223,7 +223,7 @@ internal class EffectManager
 			this.alphaMin = 0f;
 			this.alphaMax = 1f;
 			this.strength = 0.015f;
-			Global.SetVibration(0.3f);
+			Global.SetVibration(0.3f); //drunk, shake with blur
 			break;
 		}
 	}

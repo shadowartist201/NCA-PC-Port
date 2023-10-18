@@ -85,10 +85,10 @@ internal class ModeMenu
 		background.DrawStars(spriteBatch);
 		this.titleItem_.Draw(spriteBatch, selected: false);
 		spriteBatch.Draw(Global.aButtonTex, new Vector2(128f, 606f), Color.White);
-		spriteBatch.DrawString(Global.menuFontTex, "Select", new Vector2(177f, 586f), Color.White);
-		spriteBatch.Draw(Global.bButtonTex, new Vector2(1110f, 606f), Color.White);
-		spriteBatch.DrawString(Global.menuFontTex, "Back", new Vector2(980f, 586f), Color.White);
-		for (int i = 0; i < 5; i++)
+        spriteBatch.DrawString(Global.menuFontTex, "Select", new Vector2(190f, 586f + 20), Color.White);
+        spriteBatch.Draw(Global.bButtonTex, new Vector2(1110f, 606f), Color.White);
+        spriteBatch.DrawString(Global.menuFontTex, "Back", new Vector2(980f, 586f + 20), Color.White);
+        for (int i = 0; i < 5; i++)
 		{
 			if (i == this.index_)
 			{
