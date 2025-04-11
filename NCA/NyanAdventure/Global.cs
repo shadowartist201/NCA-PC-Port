@@ -271,7 +271,7 @@ internal static class Global
 
 	public static void PlayMenuScroll()
 	{
-		//Global.menuScrollSfx.Play(Global.SFXVolume, 0f, 0f);
+		Global.menuScrollSfx.Play(Global.SFXVolume, 0f, 0f);
 	}
 
 	public static void PlayMenuBack()

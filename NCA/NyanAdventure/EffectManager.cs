@@ -55,7 +55,7 @@ internal class EffectManager
 		this.effects = new Effect[this.numEffects];
 		for (int i = 0; i < this.effects.Length; i++)
 		{
-			//this.effects[i] = content.Load<Effect>("Effects//effect" + i);
+			this.effects[i] = content.Load<Effect>("Effects//effect" + i);
 		}
 		this.SetEffect(-1);
 	}
@@ -114,7 +114,7 @@ internal class EffectManager
 	public void Draw(SpriteBatch spriteBatch, RenderTarget2D renderTarget, GraphicsDeviceManager graphics, GraphicsDevice graphicsDevice)
 	{
 		graphicsDevice.SetRenderTarget(null);
-		/*switch (this.effectIndex)
+		switch (this.effectIndex)
 		{
 		case 2:
 			this.effects[this.effectIndex].Parameters["Offset"].SetValue(new Vector2((float)Math.Cos(this.theta), (float)Math.Sin(this.theta)));
@@ -134,17 +134,17 @@ internal class EffectManager
 			break;
 		}
 		if (this.effectIndex == -1)
-		{*/
+		{
 			spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.NonPremultiplied);
 			spriteBatch.Draw(renderTarget, Vector2.Zero, Color.White);
 			spriteBatch.End();
-		/*}
+		}
 		else
 		{
 			spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, this.effects[this.effectIndex]);
 			spriteBatch.Draw(renderTarget, Vector2.Zero, Color.White * this.alpha);
 			spriteBatch.End();
-		}*/
+		}
 	}
 
 	public void SetEffectRandom()
