@@ -172,7 +172,7 @@ internal class Game1 : Game
 	{
 		//Global.IsTrialMode = Guide.IsTrialMode;
 		float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
-		this.fpsDisplay_.Update(dt);
+		//this.fpsDisplay_.Update(dt);
 		this.currKState_ = Keyboard.GetState();
 		if (!Global.PlayerIndex.HasValue)
 		{
@@ -236,7 +236,7 @@ internal class Game1 : Game
 			this.stage_.DrawUI(this.spriteBatch);
 		}
 		this.menuManager_.Draw(this.spriteBatch, this.stage_.Background, this.stage_.Character, this.stage_.ScoreSystem);
-		this.fpsDisplay_.Draw(spriteBatch);
+		//this.fpsDisplay_.Draw(spriteBatch);
 		this.spriteBatch.End();
 		base.Draw(gameTime);
 	}
