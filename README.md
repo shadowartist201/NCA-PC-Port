@@ -4,7 +4,7 @@ A Windows port of Nyan Cat Adventure, originally developed by 21st Street Games 
 This is a project to bring NCA to PC using the Xbox 360 version and the MonoGame Framework as a base.
 
 ### Current status 
-Main functionality works. Effects mostly work. Only available in Windowed 1280x720. Supports X360 controller and keyboard.
+Main functionality works. Effects mostly work. Only available in windowed 1280x720. Supports X360 controller and keyboard.
 
 Controls (keyboard):
 - S (Start)
