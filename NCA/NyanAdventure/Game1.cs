@@ -150,7 +150,7 @@ internal class Game1 : Game
 		}
 		Global.boostSfx = base.Content.Load<SoundEffect>("Sound//SFX//Booster Loop");
 		Global.transitionSfx = base.Content.Load<SoundEffect>("Sound//SFX//Level Transition");
-		Global.countdownSfx = base.Content.Load<SoundEffect>("Sound//SFX//Level Countdown");
+		Global.countdownSfx = base.Content.Load<SoundEffect>("Sound//SFX//Level Countdown2");
 		Global.goSfx = base.Content.Load<SoundEffect>("Sound//SFX//Level Start");
 		Global.deathSfx = base.Content.Load<SoundEffect>("Sound//SFX//Death");
 		Global.menuSelectSfx = base.Content.Load<SoundEffect>("Sound//SFX//Menu//Menu Select");
