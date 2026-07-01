@@ -769,3 +769,279 @@
 /processorParam:TextureFormat=Color
 /build:Graphics/UI/timerOutline2.png
 
+#begin Sound/Music/All Your Base Intro.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/Music/All Your Base Intro.wav
+
+#begin Sound/Music/All Your Base.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/Music/All Your Base.wav
+
+#begin Sound/Music/Main Menu Intro.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/Music/Main Menu Intro.wav
+
+#begin Sound/Music/Main Menu Loop.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/Music/Main Menu Loop.wav
+
+#begin Sound/Music/Main Menu.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/Music/Main Menu.wav
+
+#begin Sound/Music/Nyan Remix Intro.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/Music/Nyan Remix Intro.wav
+
+#begin Sound/Music/Nyan Remix.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/Music/Nyan Remix.wav
+
+#begin Sound/Music/Techno Mix Intro.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/Music/Techno Mix Intro.wav
+
+#begin Sound/Music/Techno Mix.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/Music/Techno Mix.wav
+
+#begin Sound/SFX/Booster Loop.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/SFX/Booster Loop.wav
+
+#begin Sound/SFX/Death.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/SFX/Death.wav
+
+#begin Sound/SFX/Explosion0.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/SFX/Explosion0.wav
+
+#begin Sound/SFX/Explosion1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/SFX/Explosion1.wav
+
+#begin Sound/SFX/Explosion2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/SFX/Explosion2.wav
+
+#begin Sound/SFX/Explosion3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/SFX/Explosion3.wav
+
+#begin Sound/SFX/Hurt0.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/SFX/Hurt0.wav
+
+#begin Sound/SFX/Hurt1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/SFX/Hurt1.wav
+
+#begin Sound/SFX/Hurt2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/SFX/Hurt2.wav
+
+#begin Sound/SFX/Hurt3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/SFX/Hurt3.wav
+
+#begin Sound/SFX/Jump0.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/SFX/Jump0.wav
+
+#begin Sound/SFX/Jump1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/SFX/Jump1.wav
+
+#begin Sound/SFX/Jump2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/SFX/Jump2.wav
+
+#begin Sound/SFX/Jump3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/SFX/Jump3.wav
+
+#begin Sound/SFX/Land0.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/SFX/Land0.wav
+
+#begin Sound/SFX/Land1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/SFX/Land1.wav
+
+#begin Sound/SFX/Land2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/SFX/Land2.wav
+
+#begin Sound/SFX/Level Countdown.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/SFX/Level Countdown.wav
+
+#begin Sound/SFX/Level Start.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/SFX/Level Start.wav
+
+#begin Sound/SFX/Level Transition.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/SFX/Level Transition.wav
+
+#begin Sound/SFX/Menu/Menu Back.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/SFX/Menu/Menu Back.wav
+
+#begin Sound/SFX/Menu/Menu Scroll.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/SFX/Menu/Menu Scroll.wav
+
+#begin Sound/SFX/Menu/Menu Select.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/SFX/Menu/Menu Select.wav
+
+#begin Sound/SFX/Menu/Menu Start.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/SFX/Menu/Menu Start.wav
+
+#begin Sound/SFX/Menu/Rolo Yeah.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/SFX/Menu/Rolo Yeah.wav
+
+#begin Sound/SFX/Powerdown0.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/SFX/Powerdown0.wav
+
+#begin Sound/SFX/Powerdown1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/SFX/Powerdown1.wav
+
+#begin Sound/SFX/Powerdown2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/SFX/Powerdown2.wav
+
+#begin Sound/SFX/Powerdown3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/SFX/Powerdown3.wav
+
+#begin Sound/SFX/Powerup0.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/SFX/Powerup0.wav
+
+#begin Sound/SFX/Powerup1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/SFX/Powerup1.wav
+
+#begin Sound/SFX/Powerup2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/SFX/Powerup2.wav
+
+#begin Sound/SFX/Powerup3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/SFX/Powerup3.wav
+
+#begin Sound/SFX/Score0.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/SFX/Score0.wav
+
+#begin Sound/SFX/Score1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/SFX/Score1.wav
+
+#begin Sound/SFX/Score2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/SFX/Score2.wav
+
+#begin Sound/SFX/Score3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/SFX/Score3.wav
+

@@ -43,8 +43,8 @@ internal class Game1 : Game
 		//base.add_Exiting((EventHandler<EventArgs>)OnExit);
 		this.graphics = new GraphicsDeviceManager(this);
 		base.Content.RootDirectory = "Content";
-		this.graphics.PreferredBackBufferWidth = 1920;
-		this.graphics.PreferredBackBufferHeight = 1080;
+		this.graphics.PreferredBackBufferWidth = 1280;
+		this.graphics.PreferredBackBufferHeight = 720;
         this.graphics.SynchronizeWithVerticalRetrace = false;
 		base.IsFixedTimeStep = false;
 		this.graphics.ApplyChanges();
