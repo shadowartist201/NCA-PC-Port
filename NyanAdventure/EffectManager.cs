@@ -150,7 +150,8 @@ internal class EffectManager
 
 	public void SetEffectRandom()
 	{
-		this.SetEffect(Global.Random.Next(this.numEffects));
+		//this.SetEffect(Global.Random.Next(this.numEffects));
+		this.SetEffect(3); //3 black
 	}
 
 	public void SetEffectOff()
@@ -201,10 +202,10 @@ internal class EffectManager
 			break;
 		case 5:
 			this.alpha = 0.15f;
-			this.alphaRate = 3f;
+			this.alphaRate = 6f;
 			this.alphaMin = 0.05f;
 			this.alphaMax = 0.3f;
-			this.offsetRate = new Vector2(4f, 4f);
+			this.offsetRate = new Vector2(2f, 2f);
 			Global.SetVibration(0.3f); //noise effect (like frosted glass)
 			break;
 		case 6:

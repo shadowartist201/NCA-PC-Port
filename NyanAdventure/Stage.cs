@@ -48,11 +48,11 @@ internal class Stage
 
 	public void Draw(SpriteBatch spriteBatch, GraphicsDeviceManager graphics, GraphicsDevice graphicsDevice)
 	{
-		//graphicsDevice.SetRenderTarget(this.renderTarget_);
-		graphicsDevice.SetRenderTarget(null);
-		Resolution.ResetViewport();
-        //spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.NonPremultiplied);
-        spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.NonPremultiplied, SamplerState.PointClamp, null, null, null, Resolution.getTransformationMatrix());
+		graphicsDevice.SetRenderTarget(this.renderTarget_);
+		//graphicsDevice.SetRenderTarget(null);
+		//Resolution.ResetViewport();
+        spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.NonPremultiplied);
+        //spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.NonPremultiplied, SamplerState.PointClamp, null, null, null, Resolution.getTransformationMatrix());
         Stage.background_.Draw(spriteBatch);
 		this.miniGame_.DrawGame(spriteBatch);
 		spriteBatch.End();
