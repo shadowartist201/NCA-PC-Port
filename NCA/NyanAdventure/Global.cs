@@ -143,7 +143,9 @@ internal static class Global
 
 	private static float vibrationStrength = 0f;
 
-	public static Vector2 ScreenSize => Global.screenSize;
+    public static Matrix screenScale;
+
+    public static Vector2 ScreenSize => Global.screenSize;
 
 	public static Random Random => Global.random_;
 

@@ -43,9 +43,9 @@ internal class Game1 : Game
 		//base.add_Exiting((EventHandler<EventArgs>)OnExit);
 		this.graphics = new GraphicsDeviceManager(this);
 		base.Content.RootDirectory = "Content";
-		this.graphics.PreferredBackBufferWidth = 1280;
-		this.graphics.PreferredBackBufferHeight = 720;
-		this.graphics.SynchronizeWithVerticalRetrace = false;
+		this.graphics.PreferredBackBufferWidth = 1920;
+		this.graphics.PreferredBackBufferHeight = 1080;
+        this.graphics.SynchronizeWithVerticalRetrace = false;
 		base.IsFixedTimeStep = false;
 		this.graphics.ApplyChanges();
 	}
@@ -72,7 +72,8 @@ internal class Game1 : Game
 
 	protected override void Initialize()
 	{
-		base.Initialize();
+        Global.screenScale = Matrix.CreateScale(graphics.PreferredBackBufferWidth / 1280f, graphics.PreferredBackBufferHeight / 720f, 1.0f);
+        base.Initialize();
 	}
 
 	protected override void LoadContent()
@@ -230,8 +231,9 @@ internal class Game1 : Game
 		{
 			this.stage_.Draw(this.spriteBatch, this.graphics, base.GraphicsDevice);
 		}
-		this.spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.NonPremultiplied);
-		if (this.menuManager_.MenuState == MenuState.PLAY || this.menuManager_.MenuState == MenuState.PAUSE || this.menuManager_.MenuState == MenuState.TRIALPAUSE)
+		//this.spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.NonPremultiplied);
+		this.spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.NonPremultiplied, SamplerState.PointClamp, null, null, null, Global.screenScale);
+        if (this.menuManager_.MenuState == MenuState.PLAY || this.menuManager_.MenuState == MenuState.PAUSE || this.menuManager_.MenuState == MenuState.TRIALPAUSE)
 		{
 			this.stage_.DrawUI(this.spriteBatch);
 		}

@@ -135,13 +135,15 @@ internal class EffectManager
 		}
 		if (this.effectIndex == -1)
 		{
-			spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.NonPremultiplied);
+			//spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.NonPremultiplied);
+			spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.NonPremultiplied, SamplerState.PointClamp, null, null, null, Global.screenScale);
 			spriteBatch.Draw(renderTarget, Vector2.Zero, Color.White);
 			spriteBatch.End();
 		}
 		else
 		{
-			spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, this.effects[this.effectIndex]);
+			//spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, this.effects[this.effectIndex]);
+			spriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp, null, null, this.effects[this.effectIndex], Global.screenScale);
 			spriteBatch.Draw(renderTarget, Vector2.Zero, Color.White * this.alpha);
 			spriteBatch.End();
 		}

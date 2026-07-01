@@ -50,7 +50,8 @@ internal class Stage
 	{
 		graphicsDevice.SetRenderTarget(this.renderTarget_);
 		spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.NonPremultiplied);
-		Stage.background_.Draw(spriteBatch);
+		//spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.NonPremultiplied, SamplerState.PointClamp, null, null, null, Global.screenScale);
+        Stage.background_.Draw(spriteBatch);
 		this.miniGame_.DrawGame(spriteBatch);
 		spriteBatch.End();
 		Stage.effectManager_.Draw(spriteBatch, this.renderTarget_, graphics, graphicsDevice);
