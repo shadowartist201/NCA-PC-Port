@@ -1,0 +1,18 @@
+namespace NCA_Android;
+
+internal enum MenuState
+{
+	SPLASH,
+	INTRO,
+	MAIN,
+	SELECTMODE,
+	SELECTCHAR,
+	INSTRUCTIONS,
+	OPTIONS,
+	LEADERBOARDS,
+	CREDITS,
+	PLAY,
+	PAUSE,
+	TRIALPAUSE,
+	QUIT
+}
