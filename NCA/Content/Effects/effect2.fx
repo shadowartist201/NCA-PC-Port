@@ -21,16 +21,17 @@ float4 MainPS(float4 pos : SV_POSITION, float4 color0 : COLOR0, float4 texCoord 
     float4 r3;
     
     r2 = float4(0.0f, 0.0f, 0.0f, 1.0f);
-    texCoord.zw = Offset * 0.01f;
+    //texCoord.zw = Offset * 0.01f;
+    texCoord.zw = Offset * 0.05f;
     color0.xy = texCoord.zw * color0.ww;
-    for (int i = 0; i < 9; i++)
-    {
+    //for (int i = 0; i < 1; i++)
+    //{
         texCoord.xy = -color0.xy + texCoord.xy;
         r3 = SpriteTexture.Sample(TextureSampler, texCoord.xy);
         r2 = r3 + r2;
-    }
-    return r2 * 0.111f;
-
+    //}
+    return r2;
+    //return r2 * 0.111f;
 }
 
 technique BlurDirectional

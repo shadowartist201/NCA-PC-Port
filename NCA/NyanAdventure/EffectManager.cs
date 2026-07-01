@@ -120,8 +120,8 @@ internal class EffectManager
 			this.effects[this.effectIndex].Parameters["Offset"].SetValue(new Vector2((float)Math.Cos(this.theta), (float)Math.Sin(this.theta)));
 			break;
 		case 5:
-			graphics.GraphicsDevice.Textures[1] = this.noiseTex;
-			graphicsDevice.SamplerStates[1] = SamplerState.LinearWrap;
+            this.effects[this.effectIndex].Parameters["DisplacementTexture"].SetValue(this.noiseTex);
+            graphicsDevice.SamplerStates[1] = SamplerState.LinearWrap;
 			this.effects[this.effectIndex].Parameters["Offset"].SetValue(this.offset);
 			break;
 		case 6:
@@ -184,7 +184,8 @@ internal class EffectManager
 			this.alphaMin = 0.1f;
 			this.alphaMax = 0.4f;
 			this.theta = 0f;
-			this.thetaRate = 8f;
+			//this.thetaRate = 8f;
+			this.thetaRate = 50f;
 			Global.SetVibration(0.3f); //shake in circles
 			break;
 		case 3:
