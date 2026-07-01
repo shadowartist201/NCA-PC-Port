@@ -1,3 +1,4 @@
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -58,40 +59,41 @@ internal class MenuManager
 		this.trialPauseMenu_ = new TrialPauseMenu();
 	}
 
-	public void Update(float dt, MiniGame miniGame, Character character, SongManager songManager, KeyboardState currKState, KeyboardState prevKState, GamePadState currPState, GamePadState prevPState)
+	public void Update(float dt, MiniGame miniGame, Character character, SongManager songManager, InputState inputState)
 	{
-		this.prevMenuState_ = this.menuState_;
+		Rectangle placeholder = new Rectangle(0, 0, 1, 1);
+        this.prevMenuState_ = this.menuState_;
 		switch (this.menuState_)
 		{
 		case MenuState.SPLASH:
 			this.splashMenu_.Update(dt, ref this.menuState_);
 			break;
 		case MenuState.INTRO:
-			this.introMenu_.Update(dt, ref this.menuState_, currKState, prevKState, currPState, prevPState);
+			this.introMenu_.Update(dt, ref this.menuState_, inputState);
 			break;
 		case MenuState.MAIN:
-			this.mainMenu_.Update(dt, ref this.menuState_, currKState, prevKState, currPState, prevPState);
+			this.mainMenu_.Update(dt, ref this.menuState_, inputState);
 			break;
 		case MenuState.SELECTMODE:
-			this.modeMenu_.Update(dt, ref this.menuState_, ref this.modeIndex_, character, currKState, prevKState, currPState, prevPState);
+			this.modeMenu_.Update(dt, ref this.menuState_, ref this.modeIndex_, character, inputState);
 			break;
 		case MenuState.SELECTCHAR:
-			this.charMenu_.Update(dt, ref this.menuState_, ref this.characterIndex_, character, currKState, prevKState, currPState, prevPState);
+			this.charMenu_.Update(dt, ref this.menuState_, ref this.characterIndex_, character, inputState);
 			break;
 		case MenuState.INSTRUCTIONS:
-			this.instructionsMenu_.Update(dt, ref this.menuState_, currKState, prevKState, currPState, prevPState);
+			this.instructionsMenu_.Update(dt, ref this.menuState_, inputState);
 			break;
 		case MenuState.OPTIONS:
-			this.optionsMenu_.Update(dt, ref this.menuState_, currKState, prevKState, currPState, prevPState);
+			this.optionsMenu_.Update(dt, ref this.menuState_, inputState);
 			break;
 		case MenuState.LEADERBOARDS:
-			this.leaderboardsMenu_.Update(dt, ref this.menuState_, currKState, prevKState, currPState, prevPState);
+			this.leaderboardsMenu_.Update(dt, ref this.menuState_, inputState);
 			break;
 		case MenuState.CREDITS:
-			this.creditsMenu_.Update(dt, ref this.menuState_, currKState, prevKState, currPState, prevPState);
+			this.creditsMenu_.Update(dt, ref this.menuState_, inputState);
 			break;
 		case MenuState.PLAY:
-			if ((currKState.IsKeyDown(Keys.P) && prevKState.IsKeyUp(Keys.P)) || (prevPState.IsButtonUp(Buttons.Start) && currPState.IsButtonDown(Buttons.Start)))
+			if (inputState.IsButtonPressed(Buttons.Start) || (placeholder.Contains((Game1.touchLocations[0].Position - Game1.touchOffset) * Game1.resolutionDifference) && inputState.IsThingTouched()))
 			{
 				this.menuState_ = MenuState.PAUSE;
 				Global.TurnOffBoost();
@@ -110,10 +112,10 @@ internal class MenuManager
 			}
 			break;
 		case MenuState.PAUSE:
-			this.pauseMenu_.Update(dt, ref this.menuState_, currKState, prevKState, currPState, prevPState);
+			this.pauseMenu_.Update(dt, ref this.menuState_, inputState);
 			break;
 		case MenuState.TRIALPAUSE:
-			this.trialPauseMenu_.Update(dt, ref this.menuState_, currKState, prevKState, currPState, prevPState);
+			//this.trialPauseMenu_.Update(dt, ref this.menuState_, currKState, prevKState, currPState, prevPState, inputState);
 			break;
 		}
 		if (this.menuState_ == MenuState.INTRO && this.prevMenuState_ == MenuState.MAIN)

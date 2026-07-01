@@ -25,18 +25,18 @@ internal class Menu
 		this.menuItems_.Add(menuItem);
 	}
 
-	protected void Update(float dt, KeyboardState currKState, KeyboardState prevKState, GamePadState currPState, GamePadState prevPState)
+	protected void Update(float dt, InputState inputState)
 	{
 		for (int i = 0; i < this.menuItems_.Count; i++)
 		{
 			this.menuItems_[i].Update(dt, i == this.index_);
 		}
-		if (((currKState.IsKeyDown(Keys.Down) && prevKState.IsKeyUp(Keys.Down)) || (currPState.IsButtonDown(Buttons.DPadDown) && prevPState.IsButtonUp(Buttons.DPadDown)) || (currPState.ThumbSticks.Left.Y < -0.5f && prevPState.ThumbSticks.Left.Y >= -0.5f)) && this.index_ + 1 < this.menuItems_.Count)
+		if (inputState.IsButtonPressed(Buttons.DPadDown) && this.index_ + 1 < this.menuItems_.Count)
 		{
 			this.index_++;
 			Global.PlayMenuScroll();
 		}
-		if (((currKState.IsKeyDown(Keys.Up) && prevKState.IsKeyUp(Keys.Up)) || (currPState.IsButtonDown(Buttons.DPadUp) && prevPState.IsButtonUp(Buttons.DPadUp)) || (currPState.ThumbSticks.Left.Y > 0.5f && prevPState.ThumbSticks.Left.Y <= 0.5f)) && this.index_ > 0)
+		if (inputState.IsButtonPressed(Buttons.DPadUp) && this.index_ > 0)
 		{
 			this.index_--;
 			Global.PlayMenuScroll();

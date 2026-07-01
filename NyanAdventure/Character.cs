@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -127,9 +128,11 @@ internal class Character : AnimatedSprite
 		this.SetCharacter(0);
 	}
 
-	public void HandleInput(GameMode gameMode, float dt, KeyboardState currKState, KeyboardState prevKState, GamePadState currPState, GamePadState prevPState)
+	public void HandleInput(GameMode gameMode, float dt, InputState inputState)
 	{
-		this.characterTrail_.Update(dt, base.Position + new Vector2(0f, (base.frameInfo_.Height - 66) / 2), this.attached_);
+        Rectangle playArea = new(0, 0, 1280, 720);
+
+        this.characterTrail_.Update(dt, base.Position + new Vector2(0f, (base.frameInfo_.Height - 66) / 2), this.attached_);
 		this.pressTimer_ += dt;
 		this.flipTimer_ += dt;
 		this.scaleTimer_ += dt;
@@ -203,7 +206,7 @@ internal class Character : AnimatedSprite
 			this.maxVelocityY_ = 900f;
 			this.accelerationY_ = 2400f;
 			this.velocityX_ = 0f;
-			if ((prevKState.IsKeyUp(Keys.Space) && currKState.IsKeyDown(Keys.Space)) || (prevPState.IsButtonUp(Buttons.A) && currPState.IsButtonDown(Buttons.A)))
+			if (inputState.IsButtonPressed(Buttons.A) || playArea.Contains((Game1.touchLocations[0].Position - Game1.touchOffset) * Game1.resolutionDifference) && inputState.IsThingTouched())
 			{
 				this.pressTimer_ = 0f;
 			}
@@ -226,8 +229,8 @@ internal class Character : AnimatedSprite
 			{
 				this.accelerationY_ = -2400f;
 			}
-			if ((prevKState.IsKeyUp(Keys.Space) && currKState.IsKeyDown(Keys.Space)) || (prevPState.IsButtonUp(Buttons.A) && currPState.IsButtonDown(Buttons.A)))
-			{
+			if (inputState.IsButtonPressed(Buttons.A) || playArea.Contains((Game1.touchLocations[0].Position - Game1.touchOffset) * Game1.resolutionDifference) && inputState.IsThingTouched())
+            {
 				this.pressTimer_ = 0f;
 			}
 			if (this.onPlatform_ && this.pressTimer_ < this.pressTime_ && this.flipTimer_ > 0.05f)
@@ -242,8 +245,8 @@ internal class Character : AnimatedSprite
 			this.minVelocityY_ = -260f;
 			this.maxVelocityY_ = 260f;
 			this.velocityX_ = 0f;
-			if (currKState.IsKeyDown(Keys.Space) || currPState.IsButtonDown(Buttons.A))
-			{
+			if (inputState.IsButtonDown(Buttons.A) || playArea.Contains((Game1.touchLocations[0].Position - Game1.touchOffset) * Game1.resolutionDifference) && inputState.IsThingHeld())
+                {
 				this.accelerationY_ = -887.5f;
 				Global.PlayBoost(dt);
 			}
@@ -257,8 +260,8 @@ internal class Character : AnimatedSprite
 			this.minVelocityY_ = -10000f;
 			this.maxVelocityY_ = 10000f;
 			this.accelerationY_ = 0f;
-			if (this.attached_ && this.attachedBarrel_ != null && (this.attachedBarrel_.Automatic || (prevKState.IsKeyUp(Keys.Space) && currKState.IsKeyDown(Keys.Space)) || (prevPState.IsButtonUp(Buttons.A) && currPState.IsButtonDown(Buttons.A))))
-			{
+			if (this.attached_ && this.attachedBarrel_ != null && (this.attachedBarrel_.Automatic || (inputState.IsButtonPressed(Buttons.A) || playArea.Contains((Game1.touchLocations[0].Position - Game1.touchOffset) * Game1.resolutionDifference) && inputState.IsThingTouched())))
+            {
 				base.position_ = this.attachedBarrel_.Position;
 				this.velocityX_ = MiniGame.tunnelSpeed_ + (float)(1200.0 * Math.Cos(this.attachedBarrel_.Rotation - (float)Math.PI / 2f));
 				this.velocityY_ = (float)(1200.0 * Math.Sin(this.attachedBarrel_.Rotation - (float)Math.PI / 2f));
@@ -438,7 +441,7 @@ internal class Character : AnimatedSprite
 
 	public void Update(float dt, GameMode gameMode, bool paused)
 	{
-		if (paused)
+        if (paused)
 		{
 			this.characterTrail_.Update(dt, base.Position + new Vector2(0f, (base.frameInfo_.Height - 66) / 2), this.attached_);
 			Global.TurnOffBoost();
@@ -534,7 +537,7 @@ internal class Character : AnimatedSprite
 
 	public new void Draw(SpriteBatch spriteBatch)
 	{
-		this.characterTrail_.Draw(spriteBatch, base.scale_, base.color_, this.attached_);
+        this.characterTrail_.Draw(spriteBatch, base.scale_, base.color_, this.attached_);
 		base.Draw(spriteBatch);
 	}
 

@@ -44,9 +44,10 @@ internal class IntroMenu
 		}
 	}
 
-	public void Update(float dt, ref MenuState menuState, KeyboardState currKState, KeyboardState prevKState, GamePadState currPState, GamePadState prevPState)
+	public void Update(float dt, ref MenuState menuState, InputState inputState)
 	{
-		if ((currKState.IsKeyDown(Keys.Space) && prevKState.IsKeyUp(Keys.Space)) || (prevPState.IsButtonUp(Buttons.A) && currPState.IsButtonDown(Buttons.A)) || (prevPState.IsButtonUp(Buttons.Start) && currPState.IsButtonDown(Buttons.Start)))
+		Rectangle placeholder = new Rectangle(0, 0, 1280, 720);
+        if ((inputState.IsButtonPressed(Buttons.A) || inputState.IsButtonPressed(Buttons.Start)) || (placeholder.Contains((Game1.touchLocations[0].Position - Game1.touchOffset) * Game1.resolutionDifference) && inputState.IsThingTouched()))
 		{
 			menuState = MenuState.MAIN;
 			Global.PlayExplosion();

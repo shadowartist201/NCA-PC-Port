@@ -21,9 +21,10 @@ internal class MainMenu : Menu
 		base.AddMenuItem(new MenuItem("Quit", new Vector2(640f, 606f), new Color(255, 240, 0)));
 	}
 
-	public void Update(float dt, ref MenuState menuState, KeyboardState currKState, KeyboardState prevKState, GamePadState currPState, GamePadState prevPState)
+	public void Update(float dt, ref MenuState menuState, InputState inputState)
 	{
-		this.afkTimer_ += dt;
+		Rectangle placeholder = new Rectangle(0, 0, 1280, 720);
+        this.afkTimer_ += dt;
 		if (this.afkTimer_ > this.afkTime_)
 		{
 			menuState = MenuState.INTRO;
@@ -53,7 +54,7 @@ internal class MainMenu : Menu
 			base.AddMenuItem(new MenuItem("Quit", new Vector2(640f, 606f), new Color(255, 240, 0)));
 			base.index_ = 0;
 		}
-		if ((currKState.IsKeyDown(Keys.Space) && prevKState.IsKeyUp(Keys.Space)) || (prevPState.IsButtonUp(Buttons.A) && currPState.IsButtonDown(Buttons.A)))
+		if (inputState.IsButtonPressed(Buttons.A) || (placeholder.Contains((Game1.touchLocations[0].Position - Game1.touchOffset) * Game1.resolutionDifference) && inputState.IsThingTouched()))
 		{
 			switch (base.index_)
 			{
@@ -103,7 +104,7 @@ internal class MainMenu : Menu
 			this.afkTimer_ = 0f;
 		}
 		int num = base.index_;
-		base.Update(dt, currKState, prevKState, currPState, prevPState);
+		base.Update(dt, inputState);
 		if (base.index_ != num)
 		{
 			this.afkTimer_ = 0f;

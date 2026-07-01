@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace NCA_Android;
 
-internal static class Global
+public static class Global
 {
 	public static bool IsTrialMode;
 
@@ -142,6 +142,8 @@ internal static class Global
 	private static bool vibrationPaused = false;
 
 	private static float vibrationStrength = 0f;
+
+    public static PlayerIndex? playerIndex = null;
 
     public static Matrix screenScale;
 

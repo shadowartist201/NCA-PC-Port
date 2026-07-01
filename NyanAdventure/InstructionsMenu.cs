@@ -32,9 +32,11 @@ internal class InstructionsMenu
 		}
 	}
 
-	public void Update(float dt, ref MenuState menuState, KeyboardState currKState, KeyboardState prevKState, GamePadState currPState, GamePadState prevPState)
+	public void Update(float dt, ref MenuState menuState, InputState inputState)
 	{
-		this.aScale_ += this.aScaleRate_ * dt;
+		Rectangle placeholder = new Rectangle(0, 0, 1280, 720);
+		Rectangle placeholder2 = new Rectangle(0, 0, 1, 1);
+        this.aScale_ += this.aScaleRate_ * dt;
 		if (this.aScale_ < this.aScaleMin_)
 		{
 			this.aScale_ = this.aScaleMin_;
@@ -50,12 +52,12 @@ internal class InstructionsMenu
 		{
 			collectable.Update(dt);
 		}
-		if ((currKState.IsKeyDown(Keys.Space) && prevKState.IsKeyUp(Keys.Space)) || (prevPState.IsButtonUp(Buttons.A) && currPState.IsButtonDown(Buttons.A)))
+		if (inputState.IsButtonPressed(Buttons.A) || (placeholder.Contains((Game1.touchLocations[0].Position - Game1.touchOffset) * Game1.resolutionDifference) && inputState.IsThingTouched()))
 		{
 			menuState = MenuState.PLAY;
 			Global.PlayMenuSelect();
 		}
-		if ((currKState.IsKeyDown(Keys.B) && prevKState.IsKeyUp(Keys.B)) || (prevPState.IsButtonUp(Buttons.B) && currPState.IsButtonDown(Buttons.B)))
+		if (inputState.IsButtonPressed(Buttons.B) || (placeholder2.Contains((Game1.touchLocations[0].Position - Game1.touchOffset) * Game1.resolutionDifference) && inputState.IsThingTouched()))
 		{
 			menuState = MenuState.SELECTMODE;
 			Global.PlayMenuBack();

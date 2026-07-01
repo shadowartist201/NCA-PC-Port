@@ -18,9 +18,11 @@ internal class CharacterMenu
 		this.titleItem_.DefaultColor = new Color(0, 246, 255);
 	}
 
-	public void Update(float dt, ref MenuState menuState, ref int characterIndex, Character character, KeyboardState currKState, KeyboardState prevKState, GamePadState currPState, GamePadState prevPState)
+	public void Update(float dt, ref MenuState menuState, ref int characterIndex, Character character, InputState inputState)
 	{
-		if ((currKState.IsKeyDown(Keys.Space) && prevKState.IsKeyUp(Keys.Space)) || (prevPState.IsButtonUp(Buttons.A) && currPState.IsButtonDown(Buttons.A)))
+		Rectangle placeholder = new Rectangle(0, 0, 1280, 720);
+		Rectangle placeholder2 = new Rectangle(0, 0, 1, 1);
+        if (inputState.IsButtonPressed(Buttons.A) || (placeholder.Contains((Game1.touchLocations[0].Position - Game1.touchOffset) * Game1.resolutionDifference) && inputState.IsThingTouched()))
 		{
 			characterIndex = this.index_;
 			menuState = MenuState.SELECTMODE;
@@ -28,19 +30,19 @@ internal class CharacterMenu
 			this.index_ = 0;
 			return;
 		}
-		if ((currKState.IsKeyDown(Keys.B) && prevKState.IsKeyUp(Keys.B)) || (prevPState.IsButtonUp(Buttons.B) && currPState.IsButtonDown(Buttons.B)))
+		if (inputState.IsButtonPressed(Buttons.B) || (placeholder2.Contains((Game1.touchLocations[0].Position - Game1.touchOffset) * Game1.resolutionDifference) && inputState.IsThingTouched()))
 		{
 			menuState = MenuState.MAIN;
 			Global.PlayMenuBack();
 			this.index_ = 0;
 			return;
 		}
-		if (((currKState.IsKeyDown(Keys.Down) && prevKState.IsKeyUp(Keys.Down)) || (currPState.IsButtonDown(Buttons.DPadDown) && prevPState.IsButtonUp(Buttons.DPadDown)) || (currPState.ThumbSticks.Left.Y < -0.5f && prevPState.ThumbSticks.Left.Y >= -0.5f)) && this.index_ < this.maxIndex_)
+		if (inputState.IsButtonPressed(Buttons.DPadDown) && this.index_ < this.maxIndex_)
 		{
 			this.index_++;
 			Global.PlayMenuScroll();
 		}
-		if (((currKState.IsKeyDown(Keys.Up) && prevKState.IsKeyUp(Keys.Up)) || (currPState.IsButtonDown(Buttons.DPadUp) && prevPState.IsButtonUp(Buttons.DPadUp)) || (currPState.ThumbSticks.Left.Y > 0.5f && prevPState.ThumbSticks.Left.Y <= 0.5f)) && this.index_ > 0)
+		if (inputState.IsButtonPressed(Buttons.DPadUp) && this.index_ > 0)
 		{
 			this.index_--;
 			Global.PlayMenuScroll();

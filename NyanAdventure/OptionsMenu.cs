@@ -19,9 +19,11 @@ internal class OptionsMenu : Menu
 		base.AddMenuItem(new MenuItem("Back", new Vector2(640f, 650f), new Color(255, 240, 0)));
 	}
 
-	public void Update(float dt, ref MenuState menuState, KeyboardState currKState, KeyboardState prevKState, GamePadState currPState, GamePadState prevPState)
+	public void Update(float dt, ref MenuState menuState, InputState inputState)
 	{
-		if ((currKState.IsKeyDown(Keys.Left) && prevKState.IsKeyUp(Keys.Left)) || (prevPState.IsButtonUp(Buttons.DPadLeft) && currPState.IsButtonDown(Buttons.DPadLeft)) || (currPState.ThumbSticks.Left.X < -0.5f && prevPState.ThumbSticks.Left.X >= -0.5f))
+		Rectangle placeholder = new Rectangle(0, 0, 1280, 720);
+		Rectangle placeholder2 = new Rectangle(0, 0, 1, 1);
+        if (inputState.IsButtonPressed(Buttons.DPadLeft))
 		{
 			switch (base.index_)
 			{
@@ -39,7 +41,7 @@ internal class OptionsMenu : Menu
 			}
 			Global.PlayMenuSelect();
 		}
-		if ((currKState.IsKeyDown(Keys.Right) && prevKState.IsKeyUp(Keys.Right)) || (prevPState.IsButtonUp(Buttons.DPadRight) && currPState.IsButtonDown(Buttons.DPadRight)) || (currPState.ThumbSticks.Left.X > 0.5f && prevPState.ThumbSticks.Left.X <= 0.5f))
+		if (inputState.IsButtonPressed(Buttons.DPadRight))
 		{
 			switch (base.index_)
 			{
@@ -57,7 +59,7 @@ internal class OptionsMenu : Menu
 			}
 			Global.PlayMenuSelect();
 		}
-		if ((currKState.IsKeyDown(Keys.Space) && prevKState.IsKeyUp(Keys.Space)) || (prevPState.IsButtonUp(Buttons.A) && currPState.IsButtonDown(Buttons.A)))
+		if (inputState.IsButtonPressed(Buttons.A) || (placeholder.Contains((Game1.touchLocations[0].Position - Game1.touchOffset) * Game1.resolutionDifference) && inputState.IsThingTouched()))
 		{
 			switch (base.index_)
 			{
@@ -86,13 +88,13 @@ internal class OptionsMenu : Menu
 				Global.PlayMenuSelect();
 			}
 		}
-		if ((currKState.IsKeyDown(Keys.B) && prevKState.IsKeyUp(Keys.B)) || (prevPState.IsButtonUp(Buttons.B) && currPState.IsButtonDown(Buttons.B)))
+		if (inputState.IsButtonPressed(Buttons.B) || (placeholder2.Contains((Game1.touchLocations[0].Position - Game1.touchOffset) * Game1.resolutionDifference) && inputState.IsThingTouched()))
 		{
 			menuState = MenuState.MAIN;
 			Global.PlayMenuBack();
 			base.index_ = 0;
 		}
-		base.Update(dt, currKState, prevKState, currPState, prevPState);
+		base.Update(dt, inputState);
 	}
 
 	public new void Draw(SpriteBatch spriteBatch, Background background)

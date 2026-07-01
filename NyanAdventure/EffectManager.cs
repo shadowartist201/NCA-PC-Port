@@ -121,7 +121,7 @@ internal class EffectManager
 			this.effects[this.effectIndex].Parameters["Offset"].SetValue(new Vector2((float)Math.Cos(this.theta), (float)Math.Sin(this.theta)));
 			break;
 		case 5:
-            this.effects[this.effectIndex].Parameters["DisplacementTexture"].SetValue(this.noiseTex);
+            this.effects[this.effectIndex].Parameters["DisplacementSampler+DisplacementTexture"].SetValue(this.noiseTex);
             graphicsDevice.SamplerStates[1] = SamplerState.LinearWrap;
 			this.effects[this.effectIndex].Parameters["Offset"].SetValue(this.offset);
 			break;
@@ -142,9 +142,9 @@ internal class EffectManager
 		}
 		else
 		{
-			spriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp, null, null, this.effects[this.effectIndex], Resolution.getTransformationMatrix());
-			spriteBatch.Draw(renderTarget, Vector2.Zero, Color.White * this.alpha);
-			spriteBatch.End();
+            spriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp, null, null, this.effects[this.effectIndex], Resolution.getTransformationMatrix());
+            spriteBatch.Draw(renderTarget, Vector2.Zero, Color.White * this.alpha);
+            spriteBatch.End();
 		}
 	}
 

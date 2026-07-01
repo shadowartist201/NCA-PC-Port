@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Input.Touch;
-using static Android.Net.LocalSocketAddress;
 
 namespace NCA_Android
 {
@@ -19,13 +18,7 @@ namespace NCA_Android
 
         public static SongManager songManager_;
 
-        private GamePadState prevPState_;
-
-        private KeyboardState prevKState_;
-
-        private KeyboardState currKState_;
-
-        private GamePadState currPState_;
+        private InputState currInput = new InputState();
 
         private FPSDisplay fpsDisplay_;
 
@@ -189,34 +182,35 @@ namespace NCA_Android
             //Global.IsTrialMode = Guide.IsTrialMode;
             float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
             //this.fpsDisplay_.Update(dt);
-            this.currKState_ = Keyboard.GetState();
+            this.currInput.Update();
+            //this.currKState_ = Keyboard.GetState();
             if (!Global.PlayerIndex.HasValue)
             {
                 for (PlayerIndex playerIndex = PlayerIndex.One; playerIndex <= PlayerIndex.Four; playerIndex++)
                 {
-                    GamePadState state = GamePad.GetState(playerIndex);
-                    if ((this.menuManager_.MenuState == MenuState.INTRO && (state.IsButtonDown(Buttons.A) || state.IsButtonDown(Buttons.Start))) || (this.menuManager_.MenuState == MenuState.MAIN && (state.IsButtonDown(Buttons.A) || state.IsButtonDown(Buttons.DPadDown) || state.ThumbSticks.Left.Y < -0.5f || state.IsButtonDown(Buttons.DPadUp) || state.ThumbSticks.Left.Y > 0.5f)))
+                    //GamePadState state = GamePad.GetState(playerIndex);
+                    if ((this.menuManager_.MenuState == MenuState.INTRO && (GamePad.GetState(playerIndex).IsButtonDown(Buttons.A) || GamePad.GetState(playerIndex).IsButtonDown(Buttons.Start))) || (this.menuManager_.MenuState == MenuState.MAIN && (GamePad.GetState(playerIndex).IsButtonDown(Buttons.A) || GamePad.GetState(playerIndex).IsButtonDown(Buttons.DPadDown) || GamePad.GetState(playerIndex).ThumbSticks.Left.Y < -0.5f || GamePad.GetState(playerIndex).IsButtonDown(Buttons.DPadUp) || GamePad.GetState(playerIndex).ThumbSticks.Left.Y > 0.5f)))
                     {
                         Global.PlayerIndex = playerIndex;
-                        this.currPState_ = state;
+                        //this.currPState_ = state;
                         break;
                     }
                 }
             }
             else
             {
-                this.currPState_ = GamePad.GetState(Global.PlayerIndex.Value);
+                //this.currPState_ = GamePad.GetState(Global.PlayerIndex.Value);
             }
             Game1.songManager_.Update(dt);
             if (this.menuManager_.MenuState == MenuState.PLAY)
             {
-                this.stage_.Update(dt, this.currKState_, this.prevKState_, this.currPState_, this.prevPState_);
+                this.stage_.Update(dt, this.currInput);
             }
             if (this.menuManager_.MenuState != MenuState.PAUSE && this.menuManager_.MenuState != MenuState.TRIALPAUSE)
             {
                 this.stage_.Background.UpdateStars(dt);
             }
-            this.menuManager_.Update(dt, this.stage_.MiniGame, this.stage_.Character, Game1.songManager_, this.currKState_, this.prevKState_, this.currPState_, this.prevPState_);
+            this.menuManager_.Update(dt, this.stage_.MiniGame, this.stage_.Character, Game1.songManager_, this.currInput);
             if (this.menuManager_.MenuState != this.menuManager_.PrevMenuState)
             {
                 if (this.menuManager_.MenuState == MenuState.PLAY && this.menuManager_.PrevMenuState == MenuState.INSTRUCTIONS)
@@ -234,8 +228,7 @@ namespace NCA_Android
                     base.Exit();
                 }
             }
-            this.prevKState_ = this.currKState_;
-            this.prevPState_ = this.currPState_;
+            this.currInput.EndUpdate();
             base.Update(gameTime);
         }
 

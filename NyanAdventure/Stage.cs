@@ -32,7 +32,7 @@ internal class Stage
 		this.renderTarget_ = new RenderTarget2D(graphicsDevice, 1280, 720, mipMap: false, SurfaceFormat.Color, DepthFormat.None);
 	}
 
-	public void Update(float dt, KeyboardState currKState, KeyboardState prevKState, GamePadState currPState, GamePadState prevPState)
+	public void Update(float dt, InputState inputState)
 	{
 		if (this.miniGame_.SlowmoTimeFactor < 1f)
 		{
@@ -42,7 +42,7 @@ internal class Stage
 		{
 			Stage.background_.Update(dt);
 		}
-		this.miniGame_.Update(dt, currKState, prevKState, currPState, prevPState);
+		this.miniGame_.Update(dt, inputState);
 		Stage.effectManager_.Update(dt);
 	}
 

@@ -214,9 +214,10 @@ internal class MiniGame
 		this.ResetOverallMode(this.overallMode_);
 	}
 
-	public void Update(float dt, KeyboardState currKState, KeyboardState prevKState, GamePadState currPState, GamePadState prevPState)
+	public void Update(float dt, InputState inputState)
 	{
-		if (this.paused_ && this.userControlledUnpause_ && ((prevKState.IsKeyUp(Keys.Space) && currKState.IsKeyDown(Keys.Space)) || (prevPState.IsButtonUp(Buttons.A) && currPState.IsButtonDown(Buttons.A))))
+		Rectangle placeholder = new Rectangle(0, 0, 1280, 720);
+        if (this.paused_ && this.userControlledUnpause_ && (inputState.IsButtonPressed(Buttons.A) || (placeholder.Contains((Game1.touchLocations[0].Position - Game1.touchOffset) * Game1.resolutionDifference) && inputState.IsThingTouched())))
 		{
 			this.paused_ = false;
 			Global.PlayGo();
@@ -341,7 +342,7 @@ internal class MiniGame
 			dt *= this.timeFactors_[(int)this.gameMode_] * this.difficultyTimeFactor_ * this.slowmoTimeFactor_;
 			if (!this.catchingUp_)
 			{
-				this.character_.HandleInput(this.gameMode_, dt, currKState, prevKState, currPState, prevPState);
+				this.character_.HandleInput(this.gameMode_, dt, inputState);
 			}
 			this.dividerPosition_ += MiniGame.tunnelSpeed_ * dt;
 			this.UpdateObstacles(dt);

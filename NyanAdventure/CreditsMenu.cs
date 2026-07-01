@@ -27,9 +27,11 @@ internal class CreditsMenu : Menu
 		base.AddMenuItem(new MenuItem("Back", new Vector2(640f, 666f), new Color(255, 240, 0)));
 	}
 
-	public void Update(float dt, ref MenuState menuState, KeyboardState currKState, KeyboardState prevKState, GamePadState currPState, GamePadState prevPState)
+	public void Update(float dt, ref MenuState menuState, InputState inputState)
 	{
-		if ((currKState.IsKeyDown(Keys.Space) && prevKState.IsKeyUp(Keys.Space)) || (prevPState.IsButtonUp(Buttons.A) && currPState.IsButtonDown(Buttons.A)))
+		Rectangle placeholder = new Rectangle(0, 0, 1280, 720);
+		Rectangle placeholder2 = new Rectangle(0, 0, 1, 1);
+        if (inputState.IsButtonPressed(Buttons.A) || (placeholder.Contains((Game1.touchLocations[0].Position - Game1.touchOffset) * Game1.resolutionDifference) && inputState.IsThingTouched()))
 		{
 			if (base.index_ == 0)
 			{
@@ -45,13 +47,13 @@ internal class CreditsMenu : Menu
 			}
 			base.index_ = 0;
 		}
-		if ((currKState.IsKeyDown(Keys.B) && prevKState.IsKeyUp(Keys.B)) || (prevPState.IsButtonUp(Buttons.B) && currPState.IsButtonDown(Buttons.B)))
+		if (inputState.IsButtonPressed(Buttons.B) || (placeholder2.Contains((Game1.touchLocations[0].Position - Game1.touchOffset) * Game1.resolutionDifference) && inputState.IsThingTouched()))
 		{
 			menuState = MenuState.MAIN;
 			Global.PlayMenuBack();
 			base.index_ = 0;
 		}
-		base.Update(dt, currKState, prevKState, currPState, prevPState);
+		base.Update(dt, inputState);
 	}
 
 	public new void Draw(SpriteBatch spriteBatch, Background background)
