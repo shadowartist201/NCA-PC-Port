@@ -70,7 +70,7 @@ internal class MiniGame
 
 	private float[] timeFactors_ = new float[4] { 1.3f, 2.5f, 1.5f, 1f };
 
-	private float slowmoTimeFactor_ = 1f;
+    private float slowmoTimeFactor_ = 1f;
 
 	private float slowmoTimer_;
 

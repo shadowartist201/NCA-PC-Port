@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -145,13 +146,12 @@ internal class EffectManager
             spriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp, null, null, this.effects[this.effectIndex], Resolution.getTransformationMatrix());
             spriteBatch.Draw(renderTarget, Vector2.Zero, Color.White * this.alpha);
             spriteBatch.End();
-		}
+        }
 	}
 
 	public void SetEffectRandom()
 	{
-		//this.SetEffect(Global.Random.Next(this.numEffects));
-		this.SetEffect(3); //3 black
+		this.SetEffect(Global.Random.Next(this.numEffects));
 	}
 
 	public void SetEffectOff()

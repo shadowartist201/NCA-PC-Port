@@ -100,7 +100,7 @@ internal class Character : AnimatedSprite
 
 	private float onPlatformTimer = 0f;
 
-	private float onPlatformTime = 0.03f;
+	private float onPlatformTime = 0.06f;
 
 	public int Index => this.index_;
 
@@ -234,7 +234,7 @@ internal class Character : AnimatedSprite
 				this.pressTimer_ = 0f;
 			}
 			if (this.onPlatform_ && this.pressTimer_ < this.pressTime_ && this.flipTimer_ > 0.05f)
-			{
+            {
 				this.gravityReversed_ = !this.gravityReversed_;
 				this.flipTimer_ = 0f;
 				this.accelerationY_ = 0f - this.accelerationY_;
