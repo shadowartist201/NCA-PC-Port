@@ -67,6 +67,7 @@ internal class UI
 			spriteBatch.Draw(Global.timerOutlineTex, new Vector2(640 - Global.timerOutlineTex.Width / 2, 70 - Global.timerOutlineTex.Height / 2), Color.White);
 			spriteBatch.Draw(Global.timerInsideTex, new Vector2(640 - Global.timerInsideTex.Width / 2, 70 - Global.timerInsideTex.Height / 2), (Rectangle?)new Rectangle(0, 0, (int)((float)Global.timerInsideTex.Width * this.timer_ / this.time_), Global.timerInsideTex.Height), Color.White);
 		}
+		spriteBatch.Draw(Global.pauseTex, new Vector2(1162f,70f), (Rectangle?)new Rectangle(0,0,64,64), Color.White, 0f, new Vector2(32f,32f), this.heartScale_, SpriteEffects.None, 0f);
 	}
 
 	public void AddHeart(int health)

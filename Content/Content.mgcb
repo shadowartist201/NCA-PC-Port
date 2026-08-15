@@ -766,6 +766,18 @@
 /processorParam:TextureFormat=Color
 /build:Graphics/UI/health.png;Graphics/UI/health
 
+#begin Graphics/UI/pause.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Graphics/UI/pause.png
+
 #begin Graphics/UI/timerInside2.png
 /importer:TextureImporter
 /processor:TextureProcessor

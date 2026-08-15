@@ -125,6 +125,7 @@ namespace NCA_Android
             Global.healthTex = base.Content.Load<Texture2D>("Graphics/UI/health");
             Global.timerInsideTex = base.Content.Load<Texture2D>("Graphics/UI/timerInside2");
             Global.timerOutlineTex = base.Content.Load<Texture2D>("Graphics/UI/timerOutline2");
+            Global.pauseTex = base.Content.Load<Texture2D>("Graphics/UI/pause");
             Global.splashBGTex = base.Content.Load<Texture2D>("Graphics/Menu/splashBG");
             Global.splashFGTex = base.Content.Load<Texture2D>("Graphics/Menu/splashFG");
             Global.offBarTex = base.Content.Load<Texture2D>("Graphics/Menu/offbar");

@@ -18,6 +18,12 @@ internal class PauseMenu
 		this.menuItems_.Add(new MenuItem("Quit", new Vector2(640f, 390f), Color.Yellow, 461, 819));
 	}
 
+	private Rectangle[] touchBounds = new Rectangle[2]
+	{
+		new Rectangle(539,311,193,56), //resume
+		new Rectangle(575,369,115,61) //quit
+	};
+
 	public void Update(float dt, ref MenuState menuState, InputState inputState)
 	{
 		Rectangle placeholder = new Rectangle(0, 0, 1280, 720);
@@ -92,7 +98,21 @@ internal class PauseMenu
 			this.index_--;
 			Global.PlayMenuScroll();
 		}
-	}
+        if (touchBounds[0].Contains((Game1.touchLocations[0].Position - Game1.touchOffset) * Game1.resolutionDifference) && inputState.IsThingTouched())
+		{
+            Game1.songManager_.Resume();
+            Global.SetVibrationPaused(paused: false);
+            menuState = MenuState.PLAY;
+            this.index_ = 0;
+            Global.PlayMenuSelect();
+        }
+        if (touchBounds[1].Contains((Game1.touchLocations[0].Position - Game1.touchOffset) * Game1.resolutionDifference) && inputState.IsThingTouched())
+        {
+            menuState = MenuState.MAIN;
+            this.index_ = 0;
+            Global.PlayMenuSelect();
+        }
+    }
 
 	public void Draw(SpriteBatch spriteBatch)
 	{

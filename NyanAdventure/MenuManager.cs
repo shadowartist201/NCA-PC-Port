@@ -61,7 +61,7 @@ internal class MenuManager
 
 	public void Update(float dt, MiniGame miniGame, Character character, SongManager songManager, InputState inputState)
 	{
-		Rectangle placeholder = new Rectangle(0, 0, 1, 1);
+		Rectangle touchBounds = new Rectangle(1130, 38, 64, 64);
         this.prevMenuState_ = this.menuState_;
 		switch (this.menuState_)
 		{
@@ -93,7 +93,7 @@ internal class MenuManager
 			this.creditsMenu_.Update(dt, ref this.menuState_, inputState);
 			break;
 		case MenuState.PLAY:
-			if (inputState.IsButtonPressed(Buttons.Start) || (placeholder.Contains((Game1.touchLocations[0].Position - Game1.touchOffset) * Game1.resolutionDifference) && inputState.IsThingTouched()))
+			if (inputState.IsButtonPressed(Buttons.Start) || (touchBounds.Contains((Game1.touchLocations[0].Position - Game1.touchOffset) * Game1.resolutionDifference) && inputState.IsThingTouched()))
 			{
 				this.menuState_ = MenuState.PAUSE;
 				Global.TurnOffBoost();

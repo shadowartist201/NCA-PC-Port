@@ -13,9 +13,10 @@ internal class ScoreSystem
 
 	private float setScore_;
 
-	private Vector2 scorePosition_ = new Vector2(1080f, 52f);
+    //private Vector2 scorePosition_ = new Vector2(1080f, 52f);
+    private Vector2 scorePosition_ = new Vector2(105f, 110f);
 
-	private Vector2 scoreOffset_;
+    private Vector2 scoreOffset_;
 
 	private float scoreScale_ = 1f;
 

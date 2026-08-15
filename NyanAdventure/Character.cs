@@ -130,7 +130,7 @@ internal class Character : AnimatedSprite
 
 	public void HandleInput(GameMode gameMode, float dt, InputState inputState)
 	{
-        Rectangle playArea = new(0, 0, 1280, 720);
+        Rectangle playArea = new(0, 134, 1280, 586);
 
         this.characterTrail_.Update(dt, base.Position + new Vector2(0f, (base.frameInfo_.Height - 66) / 2), this.attached_);
 		this.pressTimer_ += dt;

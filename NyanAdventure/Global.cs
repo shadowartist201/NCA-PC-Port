@@ -61,6 +61,8 @@ public static class Global
 
 	public static Texture2D timerOutlineTex;
 
+	public static Texture2D pauseTex;
+
 	public static Texture2D splashBGTex;
 
 	public static Texture2D splashFGTex;

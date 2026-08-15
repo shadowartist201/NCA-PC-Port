@@ -21,9 +21,17 @@ internal class MainMenu : Menu
 		base.AddMenuItem(new MenuItem("Quit", new Vector2(640f, 606f), new Color(255, 240, 0)));
 	}
 
-	public void Update(float dt, ref MenuState menuState, InputState inputState)
+	private Rectangle[] touchBounds = new Rectangle[5]
 	{
-		Rectangle placeholder = new Rectangle(0, 0, 1280, 720);
+		new Rectangle(570, 294, 136, 55), //start
+		new Rectangle(544, 367, 187, 64), //options
+		new Rectangle(470, 441, 337, 58), //leaderboards
+		new Rectangle(548, 515, 178, 53), //credits
+		new Rectangle(581, 583, 111, 65) //quit
+	};
+
+    public void Update(float dt, ref MenuState menuState, InputState inputState)
+	{
         this.afkTimer_ += dt;
 		if (this.afkTimer_ > this.afkTime_)
 		{
@@ -54,7 +62,7 @@ internal class MainMenu : Menu
 			base.AddMenuItem(new MenuItem("Quit", new Vector2(640f, 606f), new Color(255, 240, 0)));
 			base.index_ = 0;
 		}
-		if (inputState.IsButtonPressed(Buttons.A) || (placeholder.Contains((Game1.touchLocations[0].Position - Game1.touchOffset) * Game1.resolutionDifference) && inputState.IsThingTouched()))
+		if (inputState.IsButtonPressed(Buttons.A))
 		{
 			switch (base.index_)
 			{
@@ -103,7 +111,37 @@ internal class MainMenu : Menu
 			}
 			this.afkTimer_ = 0f;
 		}
-		int num = base.index_;
+		else if (touchBounds[0].Contains((Game1.touchLocations[0].Position - Game1.touchOffset) * Game1.resolutionDifference) && inputState.IsThingTouched())
+		{
+            menuState = MenuState.SELECTCHAR;
+            base.index_ = 0;
+            Global.PlayMenuSelect();
+        }
+        else if (touchBounds[1].Contains((Game1.touchLocations[0].Position - Game1.touchOffset) * Game1.resolutionDifference) && inputState.IsThingTouched())
+		{
+            menuState = MenuState.OPTIONS;
+            base.index_ = 0;
+            Global.PlayMenuSelect();
+        }
+		else if (touchBounds[2].Contains((Game1.touchLocations[0].Position - Game1.touchOffset) * Game1.resolutionDifference) && inputState.IsThingTouched())
+		{
+            menuState = MenuState.LEADERBOARDS;
+            base.index_ = 0;
+            Global.PlayMenuSelect();
+        }
+		else if (touchBounds[3].Contains((Game1.touchLocations[0].Position - Game1.touchOffset) * Game1.resolutionDifference) && inputState.IsThingTouched())
+		{
+            menuState = MenuState.CREDITS;
+            base.index_ = 0;
+            Global.PlayMenuSelect();
+        }
+        else if (touchBounds[4].Contains((Game1.touchLocations[0].Position - Game1.touchOffset) * Game1.resolutionDifference) && inputState.IsThingTouched())
+		{
+            menuState = MenuState.QUIT;
+            base.index_ = 0;
+            Global.PlayMenuSelect();
+        }
+        int num = base.index_;
 		base.Update(dt, inputState);
 		if (base.index_ != num)
 		{

@@ -29,9 +29,8 @@ internal class CreditsMenu : Menu
 
 	public void Update(float dt, ref MenuState menuState, InputState inputState)
 	{
-		Rectangle placeholder = new Rectangle(0, 0, 1280, 720);
-		Rectangle placeholder2 = new Rectangle(0, 0, 1, 1);
-        if (inputState.IsButtonPressed(Buttons.A) || (placeholder.Contains((Game1.touchLocations[0].Position - Game1.touchOffset) * Game1.resolutionDifference) && inputState.IsThingTouched()))
+        Rectangle touchBounds = new Rectangle(574, 649, 124, 53);
+        if (inputState.IsButtonPressed(Buttons.A) || (touchBounds.Contains((Game1.touchLocations[0].Position - Game1.touchOffset) * Game1.resolutionDifference) && inputState.IsThingTouched()))
 		{
 			if (base.index_ == 0)
 			{
@@ -47,7 +46,7 @@ internal class CreditsMenu : Menu
 			}
 			base.index_ = 0;
 		}
-		if (inputState.IsButtonPressed(Buttons.B) || (placeholder2.Contains((Game1.touchLocations[0].Position - Game1.touchOffset) * Game1.resolutionDifference) && inputState.IsThingTouched()))
+		if (inputState.IsButtonPressed(Buttons.B))
 		{
 			menuState = MenuState.MAIN;
 			Global.PlayMenuBack();

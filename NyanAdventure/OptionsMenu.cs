@@ -19,10 +19,16 @@ internal class OptionsMenu : Menu
 		base.AddMenuItem(new MenuItem("Back", new Vector2(640f, 650f), new Color(255, 240, 0)));
 	}
 
-	public void Update(float dt, ref MenuState menuState, InputState inputState)
+	private Rectangle[] touchBounds = new Rectangle[4]
 	{
-		Rectangle placeholder = new Rectangle(0, 0, 1280, 720);
-		Rectangle placeholder2 = new Rectangle(0, 0, 1, 1);
+		new Rectangle(455, 349, 384, 76), //sound fx
+		new Rectangle(548, 437, 291, 79), //music
+		new Rectangle(467, 527, 372, 82), //vibration
+		new Rectangle(567, 627, 136, 63) //back
+	};
+
+    public void Update(float dt, ref MenuState menuState, InputState inputState)
+	{
         if (inputState.IsButtonPressed(Buttons.DPadLeft))
 		{
 			switch (base.index_)
@@ -59,7 +65,7 @@ internal class OptionsMenu : Menu
 			}
 			Global.PlayMenuSelect();
 		}
-		if (inputState.IsButtonPressed(Buttons.A) || (placeholder.Contains((Game1.touchLocations[0].Position - Game1.touchOffset) * Game1.resolutionDifference) && inputState.IsThingTouched()))
+		if (inputState.IsButtonPressed(Buttons.A))
 		{
 			switch (base.index_)
 			{
@@ -88,13 +94,37 @@ internal class OptionsMenu : Menu
 				Global.PlayMenuSelect();
 			}
 		}
-		if (inputState.IsButtonPressed(Buttons.B) || (placeholder2.Contains((Game1.touchLocations[0].Position - Game1.touchOffset) * Game1.resolutionDifference) && inputState.IsThingTouched()))
+		if (inputState.IsButtonPressed(Buttons.B))
 		{
 			menuState = MenuState.MAIN;
 			Global.PlayMenuBack();
 			base.index_ = 0;
 		}
-		base.Update(dt, inputState);
+
+		if (touchBounds[0].Contains((Game1.touchLocations[0].Position - Game1.touchOffset) * Game1.resolutionDifference) && inputState.IsThingTouched())
+		{
+            this.sfxOn = !this.sfxOn;
+            Global.SFXVolume = (this.sfxOn ? 1 : 0);
+            Global.PlayMenuSelect();
+        }
+        if (touchBounds[1].Contains((Game1.touchLocations[0].Position - Game1.touchOffset) * Game1.resolutionDifference) && inputState.IsThingTouched())
+		{
+            this.musicOn = !this.musicOn;
+            Game1.songManager_.Volume = (this.musicOn ? 1 : 0);
+            Global.PlayMenuSelect();
+        }
+        if (touchBounds[2].Contains((Game1.touchLocations[0].Position - Game1.touchOffset) * Game1.resolutionDifference) && inputState.IsThingTouched())
+		{
+            Global.vibrationOn = !Global.vibrationOn;
+            Global.PlayMenuSelect();
+        }
+        if (touchBounds[3].Contains((Game1.touchLocations[0].Position - Game1.touchOffset) * Game1.resolutionDifference) && inputState.IsThingTouched())
+		{
+            base.index_ = 0;
+            menuState = MenuState.MAIN;
+            Global.PlayMenuBack();
+        }
+        base.Update(dt, inputState);
 	}
 
 	public new void Draw(SpriteBatch spriteBatch, Background background)
