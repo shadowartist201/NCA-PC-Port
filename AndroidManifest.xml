@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.shadow.NCA_Android" android:versionCode="1" android:versionName="0.1">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.shadow.NCA_Android" android:versionCode="1" android:versionName="0.2">
 	<uses-feature android:glEsVersion="0x00020000" android:required="true" />
 	<application android:label="Nyan Cat Adventure" android:icon="@drawable/icon"></application>
 </manifest>

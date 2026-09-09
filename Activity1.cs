@@ -2,7 +2,6 @@ using Android.App;
 using Android.Content.PM;
 using Android.OS;
 using Android.Views;
-using AndroidX.Core.View;
 using Microsoft.Xna.Framework;
 
 namespace NCA_Android
@@ -28,14 +27,18 @@ namespace NCA_Android
             _game = new Game1();
             _view = _game.Services.GetService(typeof(View)) as View;
 
-            WindowInsetsControllerCompat windowInsetsController = WindowCompat.GetInsetsController(Window, Window.DecorView);
-            windowInsetsController.SystemBarsBehavior = WindowInsetsControllerCompat.BehaviorShowTransientBarsBySwipe;
-            windowInsetsController.Hide(WindowInsetsCompat.Type.SystemBars());
-
-            Window.Attributes.LayoutInDisplayCutoutMode = LayoutInDisplayCutoutMode.ShortEdges;
-            Window.AddFlags(WindowManagerFlags.TranslucentStatus);
-
             SetContentView(_view);
+
+            if (Window != null)
+            { 
+                IWindowInsetsController insetsController = Window.InsetsController;
+                if (insetsController != null)
+                {
+                    insetsController.Hide(WindowInsets.Type.NavigationBars());
+                    insetsController.Hide(WindowInsets.Type.StatusBars());
+                }
+            }
+
             _game.Run();
         }
 
